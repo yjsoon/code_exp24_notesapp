@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 
-export default function AddNoteScreen() {
+export default function AddNoteScreen({ navigation }) {
   const [title, onChangeTitle] = useState("");
 
   return (
@@ -14,12 +14,16 @@ export default function AddNoteScreen() {
       />
       <View style={styles.buttons}>
         <Pressable
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate("Notes", { title });
+          }}
           style={[styles.button, styles.submitButton]}>
           <Text style={styles.buttonText}>Submit</Text>
         </Pressable>
         <Pressable
-          onPress={() => {}}
+          onPress={() => {
+            navigation.goBack();
+          }}
           style={[styles.button, styles.cancelButton]}>
           <Text style={styles.buttonText}>Cancel</Text>
         </Pressable>

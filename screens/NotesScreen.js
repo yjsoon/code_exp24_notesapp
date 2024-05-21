@@ -2,18 +2,13 @@ import { View, Text, StyleSheet, Pressable, FlatList } from "react-native";
 import { useState, useEffect } from "react";
 import { Entypo } from "@expo/vector-icons";
 
-export default function NotesScreen({ navigation }) {
+export default function NotesScreen({ route, navigation }) {
   const [notes, setNotes] = useState([
     { id: "1", title: "Walk the dog every day" },
     { id: "2", title: "Some thoughts about useEffect and its various modes" }
   ]);
 
   function addNote() {
-    // let newNote = {
-    //   id: `${notes.length + 1}`,
-    //   title: "Sample new note that's added"
-    // };
-    // setNotes([...notes, newNote]);
     navigation.navigate("Add Note");
   }
 
@@ -28,6 +23,16 @@ export default function NotesScreen({ navigation }) {
       }
     });
   });
+
+  useEffect(() => {
+    if (route.params?.title) {
+      const newNote = {
+        title: route.params.title,
+        id: notes.length.toString()
+      };
+      setNotes([...notes, newNote]);
+    }
+  }, [route.params?.title]);
 
   function renderNote({ item }) {
     return (
