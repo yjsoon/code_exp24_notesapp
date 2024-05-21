@@ -9,11 +9,12 @@ export default function NotesScreen({ navigation }) {
   ]);
 
   function addNote() {
-    let newNote = {
-      id: `${notes.length + 1}`,
-      title: "Sample new note that's added"
-    };
-    setNotes([...notes, newNote]);
+    // let newNote = {
+    //   id: `${notes.length + 1}`,
+    //   title: "Sample new note that's added"
+    // };
+    // setNotes([...notes, newNote]);
+    navigation.navigate("Add Note");
   }
 
   useEffect(() => {
