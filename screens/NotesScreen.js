@@ -54,7 +54,8 @@ export default function NotesScreen({ route, navigation }) {
           }}>
           {item.title}
         </Text>
-        <Pressable onPress={() => {}}>
+        <Pressable
+          onPress={() => setNotes(notes.filter((note) => note.id !== item.id))}>
           <Entypo name="trash" size={24} color="#999" />
         </Pressable>
       </View>
