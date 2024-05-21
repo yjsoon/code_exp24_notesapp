@@ -42,14 +42,21 @@ export default function NotesScreen({ route, navigation }) {
           paddingTop: 20,
           paddingBottom: 20,
           borderBottomColor: "#aaa",
-          borderBottomWidth: 1
+          borderBottomWidth: 1,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center"
         }}>
         <Text
           style={{
-            fontSize: 20
+            fontSize: 20,
+            width: "80%"
           }}>
           {item.title}
         </Text>
+        <Pressable onPress={() => {}}>
+          <Entypo name="trash" size={24} color="#999" />
+        </Pressable>
       </View>
     );
   }
